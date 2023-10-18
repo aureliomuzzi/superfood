@@ -160,6 +160,8 @@ return [
          * Package Service Providers...
          */
         OwenIt\Auditing\AuditingServiceProvider::class,
+        \Yajra\DataTables\DataTablesServiceProvider::class,
+        \Yajra\DataTables\ButtonsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -183,6 +185,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'DataTables' => \Yajra\DataTables\Facades\DataTables::class,
     ])->toArray(),
 
 ];
