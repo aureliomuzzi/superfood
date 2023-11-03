@@ -1,19 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomeController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
-Route::middleware('auth')->group(function() {
-
-    Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
-    Route::resource('users', UserController::class)->except(['destroy']);
-    Route::get('/users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
-
-    // Route::resource('clientepf', ClientePfController::class)->except(['destroy']);
-    // Route::get('/clientepf/{id}/destroy', [ClientePfController::class, 'destroy'])->name('clientepf.destroy');
-
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
